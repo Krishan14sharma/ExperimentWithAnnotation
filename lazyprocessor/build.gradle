@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+// This module will be used in Android projects, need to be
+// compatible with Java 1.7
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+
+dependencies {
+    compile 'log4j:log4j:1.2.16'
+    compile 'com.google.auto.service:auto-service:1.0-rc2'
+}
