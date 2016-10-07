@@ -12,4 +12,5 @@ targetCompatibility = JavaVersion.VERSION_1_7
 dependencies {
     compile 'log4j:log4j:1.2.16'
     compile 'com.google.auto.service:auto-service:1.0-rc2'
+    compile 'com.squareup:javapoet:1.7.0'
 }

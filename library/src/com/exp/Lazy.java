@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
  * Created by krishansharma on 06/10/16.
  */
 
-@Retention(RetentionPolicy.SOURCE) @Target(ElementType.PARAMETER)
+@Retention(RetentionPolicy.SOURCE)
+@Target(ElementType.TYPE)
 public @interface Lazy {
 }
