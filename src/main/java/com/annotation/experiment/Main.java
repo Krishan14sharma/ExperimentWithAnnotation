@@ -7,5 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println(new User().toString());
+        UserBuilder userBuilder=new UserBuilder();
     }
 }

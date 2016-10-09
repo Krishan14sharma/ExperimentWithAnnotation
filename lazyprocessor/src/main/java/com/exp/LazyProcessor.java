@@ -1,17 +1,22 @@
 package com.exp;
 
 import com.google.auto.service.AutoService;
+import com.squareup.javapoet.JavaFile;
+import com.squareup.javapoet.TypeSpec;
 
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
+import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
+import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
 
 /**
  * Created by krishansharma on 06/10/16.
@@ -40,8 +45,16 @@ public class LazyProcessor extends AbstractProcessor {
                 error(element, "annotations can be used on class only");
                 return true;
             }
+            try {
+                TypeSpec Class = TypeSpec.classBuilder(element.getSimpleName() + "Builder")
+                        .addModifiers(Modifier.PUBLIC, Modifier.FINAL).build();
+                JavaFile javaFile = JavaFile.builder("com.annotation.experiment", Class).build();
+                javaFile.writeTo(filer);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return false;
+        return true;
     }
 
     @Override

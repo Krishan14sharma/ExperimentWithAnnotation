@@ -1,8 +1,22 @@
 apply plugin: 'idea'
 //and standard one
 apply plugin: 'java'
+apply plugin: 'application'
 
+mainClassName = 'com.annotation.experiment.Main'
 // This module will be used in Android projects, need to be
 // compatible with Java 1.7
 sourceCompatibility = JavaVersion.VERSION_1_7
 targetCompatibility = JavaVersion.VERSION_1_7
+
+repositories {
+    mavenCentral()
+}
+task hello << {
+    println('hello world')
+}
+
+dependencies {
+    compile project(':lazyprocessor')
+    compile project(':library')
+}
